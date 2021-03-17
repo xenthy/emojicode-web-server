@@ -17,7 +17,7 @@ all:
 	$(CC) $(FLAGS) $(TARGET) && ./src/$(OUT)
 
 check:
-	$(CC) $(TARGET)
+	$(CC) $(FLAGS) $(TARGET) && ./src/$(OUT)
 
 docker:
 	docker build -t ict2206:latest .
@@ -33,7 +33,7 @@ ifeq ($(OS),Windows_NT)
 	@echo Cleaned up ./src/main & *.o files
 else
 	@echo "Cleaning up [.pyc, __pycache__, apktool/, junk apk] files..."
-	@find . -type f -name "$(OUT)" -exec rm -f {} +
+	@find ./src -type f -name "$(OUT)" -exec rm -f {} +
 	@find . -type f -name "*.o" -exec rm -f {} +
 	@find . -type f -name "*.emojic_original" -exec rm -f {} +
 endif
