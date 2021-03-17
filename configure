@@ -6,7 +6,7 @@ END='\033[0m'
 # install dependencies
 echo "\n${PURPLE}[+] Installing Emojicode dependencies\n${END}"
 sudo apt-get update -qq \
-    && apt-get -y --no-install-recommends install \
+    && sudo apt-get -y --no-install-recommends install \
     ca-certificates \
     g++ \
     rsync \
