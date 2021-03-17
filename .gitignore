@@ -1,0 +1,8 @@
+# object files
+*.o
+
+# pre-formatted files
+*.emojic_original
+
+# output file
+main
