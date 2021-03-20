@@ -18,6 +18,19 @@
     ↩️ 🔤HTTP/1.1 404 Not Found❌r❌nContent-Type: text/html❌r❌n❌r❌n🧲error_page🧲🔤
   🍉 ➡️ error_404_page
 
+  🍇🎍🥡 ➡️ 🔡
+    💭 form html error 400 page
+    🔤<html>
+<head><title>400 Bad Request</title></head>
+<body>
+<center><h1>400 Bad Request</h1></center>
+<hr><center>Emojicode Engine/0.1a (Linux)</center>
+</body>
+</html>🔤 ➡️ error_page
+    
+    ↩️ 🔤HTTP/1.1 400 Bad Request❌r❌nContent-Type: text/html❌r❌n❌r❌n🧲error_page🧲🔤
+  🍉 ➡️ error_400_page
+
   💭🔜 
       Function to craft the response and the body
 
@@ -53,20 +66,25 @@
 
     💭 store status line element into variables
     
-    🐽 status_line_list 0❗️ ➡️ http_method
+    🐽 status_line_list 0❗️ ➡️ http_method 💭 TODO: verify http method (GET POST etc.)
     🐽 status_line_list 1❗️ ➡️ 🖍🆕path
     🐽 status_line_list 2❗️ ➡️ http_version
 
     💭 verify if path starts with a forward slash
     ↪️🔍 path 🔤/🔤❗️ 🙌 🤷‍♀️ 🍇
       😀🔤[!] Invalid Status Line🔤❗️
-      ↩️ 🔤🔤  💭 return empty string
+      ↩️ ⁉️ error_400_page❗️
     🍉
     
     💭 verify and remove directory traversing symbols from path
     💭 split line with the / delimiter
     🔫 path 🔤/🔤 ❗️ ➡️ path_list
-    💭 TODO: implement code
+    🔂 path_component path_list 🍇
+       💭 return status 400 if file traversing is detected
+       ↪️ path_component 🙌 🔤..🔤 🍇
+         ↩️ ⁉️ error_400_page❗️
+       🍉
+    🍉
     
     💭 set default page to index.html
     ↪️ path 🙌 🔤/🔤🍇
@@ -82,7 +100,6 @@
     🍉
     🙅 error_no_file 🍇
       😀🔤[400] 🧲http_method🧲 🧲path🧲 🧲http_version🧲🔤❗️
-      💭 TODO: return 404
       ↩️ ⁉️ error_404_page❗️
     🍉
 
