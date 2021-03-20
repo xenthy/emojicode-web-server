@@ -4,6 +4,20 @@
 💭 Simple echo server listening on port 1337
 🏁 🍇
   🔤html🔤 ➡️ WEB_ROOT
+  
+  🍇🎍🥡 ➡️ 🔡
+    💭 form html error 404 page
+    🔤<html>
+<head><title>404 Not Found</title></head>
+<body>
+<center><h1>404 Not Found</h1></center>
+<hr><center>Emojicode Engine/0.1a (Linux)</center>
+</body>
+</html>🔤 ➡️ error_page
+    
+    ↩️ 🔤HTTP/1.1 404 Not Found❌r❌nContent-Type: text/html❌r❌n❌r❌n🧲error_page🧲🔤
+  🍉 ➡️ error_404_page
+
   💭🔜 
       Function to craft the response and the body
 
@@ -69,7 +83,7 @@
     🙅 error_no_file 🍇
       😀🔤[400] 🧲http_method🧲 🧲path🧲 🧲http_version🧲🔤❗️
       💭 TODO: return 404
-      ↩️ 🔤🔤  💭 return empty string
+      ↩️ ⁉️ error_404_page❗️
     🍉
 
   🍉 ➡️ craft_response
