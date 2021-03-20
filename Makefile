@@ -17,7 +17,7 @@ all:
 	$(CC) $(FLAGS) $(TARGET) && ./src/$(OUT)
 
 check:
-	$(CC) $(FLAGS) $(TARGET) && ./src/$(OUT)
+	$(CC) $(FLAGS) $(TARGET)
 
 docker:
 	docker build -t ict2206:latest .
