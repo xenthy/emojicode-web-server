@@ -3,32 +3,75 @@
 
 💭 Simple echo server listening on port 1337
 🏁 🍇
-  💭 function to craft response
-  🍇 request_header 🔡 ➡️ 🔡
-    🔫 request_header 🔤 🔤 ❗️ ➡️ list
+  🔤html🔤 ➡️ WEB_ROOT
+  💭🔜 
+      Function to craft the response and the body
 
-    💭 testing
-    🔂 name list🍇
+      @param request_header 🔡 (String Object)
+      @return 🔡 (String Object)
+  🔚💭
+  🍇 request_header 🔡 ➡️ 🔡
+
+    💭 split the request header with the ❌r❌n (\r\n) delimiter
+    🔫 request_header 🔤❌r❌n🔤 ❗️ ➡️ request_header_list
+
+    💭💭💭 testing 💭💭💭
+    🔂 name request_header_list 🍇
        💭😀 name❗️
     🍉
 
-    💭 check if index 0 - 2 got something
-    ↪️ 📏list❓ ◀️ 3 🍇
+    💭 only process the status line (first line) for now
+    🐽 request_header_list 0❗️ ➡️ status_line
+
+    💭 get individual elements form the status line
+    🔫 status_line 🔤 🔤 ❗️ ➡️ status_line_list
+
+    💭💭💭 testing 💭💭💭
+    🔂 name status_line_list 🍇
+       💭😀 name❗️
+    🍉    
+
+    💭 check if the status line has the correct format (3 elements)
+    ↪️ 📏 status_line_list ❓ ◀️ 3 🍇
         😀🔤[!] Invalid header🔤❗️
         ↩️ 🔤🔤  💭 return empty string
     🍉
 
-    💭 store shits into variables
-    🐽list 0❗️ ➡️ http_method
-    🐽list 1❗️ ➡️ location
-    🐽list 2❗️ ➡️ http_version
+    💭 store status line element into variables
+    
+    🐽 status_line_list 0❗️ ➡️ http_method
+    🐽 status_line_list 1❗️ ➡️ 🖍🆕path
+    🐽 status_line_list 2❗️ ➡️ http_version
+
+    💭 verify if path starts with a forward slash
+    ↪️🔍 path 🔤/🔤❗️ 🙌 🤷‍♀️ 🍇
+      😀🔤[!] Invalid Status Line🔤❗️
+      ↩️ 🔤🔤  💭 return empty string
+    🍉
+    
+    💭 verify and remove directory traversing symbols from path
+    💭 split line with the / delimiter
+    🔫 path 🔤/🔤 ❗️ ➡️ path_list
+    💭 TODO: implement code
+    
+    💭 set default page to index.html
+    ↪️ path 🙌 🔤/🔤🍇
+      🔤/index.html🔤 ➡️ 🖍path
+    🍉
 
     💭 read file from directory
-    🍺📇🐇📄🔤./index.html🔤❗️ ➡️ file_contents
-    💭😀🔤🧲🍺 🔡file_contents❗️🧲🔤❗️
+    🆗 file 📇🐇📄🔤🧲WEB_ROOT🧲🧲path🧲🔤❗️ 🍇
+      🍺 🔡 file ❗️ ➡️ file_contents
+      📐file_contents❗️ ➡️ content_length
+      😀🔤[200] 🧲http_method🧲 🧲path🧲 🧲http_version🧲🔤❗️
+      ↩️ 🔤HTTP/1.1 200 OK❌r❌nContent-Length: 🧲content_length🧲❌r❌n❌r❌n🧲 file_contents 🧲🔤 
+    🍉
+    🙅 error_no_file 🍇
+      😀🔤[400] 🧲http_method🧲 🧲path🧲 🧲http_version🧲🔤❗️
+      💭 TODO: return 404
+      ↩️ 🔤🔤  💭 return empty string
+    🍉
 
-    💭↩️ 🔡🔤DATA🔤❗️
-    ↩️ 🔤HTTP/1.1 200 OK❌r❌nContent-Type: text/html; charset=UTF-8❌r❌nContent-Length: 597❌r❌n❌r❌n🧲🍺 🔡file_contents❗️🧲🔤
   🍉 ➡️ craft_response
 
 
@@ -39,12 +82,9 @@
   🔁 👍 🍇
     🍺 🙋 server❗️ ➡️ clientSocket
     
-      🆗 data 👂 clientSocket 500❗️ 🍇
+      🆗 data 👂 clientSocket 10000❗️ 🍇
         💭 store string interpolation into request_header String variable 
         🔤🧲🍺 🔡data❗️🧲🔤 ➡️ request_header
-
-         💭 print the request header
-         😀 request_header❗️
          
          💭 declare new string interpolation to store response header
          ⁉️ craft_response request_header❗️ ➡️ response
@@ -54,7 +94,7 @@
            💭 do nothing
          🍉 💭 send response + body
          🙅 error_client_socket 🍇
-           😀 🔤An error occurred: 🧲💬error_client_socket❗️🧲🔤❗️
+           😀 🔤An error occurred: 🧲💬 error_client_socket❗️🧲🔤❗️
          🍉
       🍉 💭 client socket
       
