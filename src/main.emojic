@@ -1,3 +1,69 @@
+📦 files 🏠
+📦 sockets 🏠
+
+💭 Simple echo server listening on port 1337
 🏁 🍇
-  😀🔤Hello World!🔤❗️
-🍉
+  💭 function to craft response
+  🍇 request_header 🔡 ➡️ 🔡
+    🔫 request_header 🔤 🔤 ❗️ ➡️ list
+
+    💭 testing
+    🔂 name list🍇
+       💭😀 name❗️
+    🍉
+
+    💭 check if index 0 - 2 got something
+    ↪️ 📏list❓ ◀️ 3 🍇
+        😀🔤[!] Invalid header🔤❗️
+        ↩️ 🔤🔤  💭 return empty string
+    🍉
+
+    💭 store shits into variables
+    🐽list 0❗️ ➡️ http_method
+    🐽list 1❗️ ➡️ location
+    🐽list 2❗️ ➡️ http_version
+
+    💭 read file from directory
+    🍺📇🐇📄🔤./index.html🔤❗️ ➡️ file_contents
+    💭😀🔤🧲🍺 🔡file_contents❗️🧲🔤❗️
+
+    💭↩️ 🔡🔤DATA🔤❗️
+    ↩️ 🔤HTTP/1.1 200 OK❌r❌nContent-Type: text/html; charset=UTF-8❌r❌nContent-Length: 597❌r❌n❌r❌n🧲🍺 🔡file_contents❗️🧲🔤
+  🍉 ➡️ craft_response
+
+
+  💭 set listening port number
+  🍺🆕🏄 1337❗️ ➡️ server
+
+  💭 while true
+  🔁 👍 🍇
+    🍺 🙋 server❗️ ➡️ clientSocket
+    
+      🆗 data 👂 clientSocket 500❗️ 🍇
+        💭 store string interpolation into request_header String variable 
+        🔤🧲🍺 🔡data❗️🧲🔤 ➡️ request_header
+
+         💭 print the request header
+         😀 request_header❗️
+         
+         💭 declare new string interpolation to store response header
+         ⁉️ craft_response request_header❗️ ➡️ response
+
+         💭 We’ve read 500 bytes and send them back
+         🆗💬 clientSocket 📇 response ❗️❗️🍇
+           💭 do nothing
+         🍉 💭 send response + body
+         🙅 error_client_socket 🍇
+           😀 🔤An error occurred: 🧲💬error_client_socket❗️🧲🔤❗️
+         🍉
+      🍉 💭 client socket
+      
+      🙅‍♀️ error_data 🍇
+      🍉 💭 else
+      
+      💭 close the socket
+      🚪 clientSocket ❗️
+  
+  🍉 💭 while true
+🍉 
+

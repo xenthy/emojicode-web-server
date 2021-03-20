@@ -7,7 +7,7 @@ endif
 TARGET?=src/main.emojic
 OUT?=main
 
-FLAGS?= --color --format
+FLAGS?= --color
 
 SOURCES = $(shell find src/ -type f -name '*.emojic')
 
