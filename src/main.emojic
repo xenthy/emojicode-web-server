@@ -37,7 +37,7 @@
       @param request_header 🔡 (String Object)
       @return 🔡 (String Object)
   🔚💭
-  🍇 request_header 🔡 ➡️ 🔡
+  🍇🎍🥡 request_header 🔡 ➡️ 🔡
 
     💭 split the request header with the ❌r❌n (\r\n) delimiter
     🔫 request_header 🔤❌r❌n🔤 ❗️ ➡️ request_header_list
@@ -108,33 +108,58 @@
 
   💭 set listening port number
   🍺🆕🏄 1337❗️ ➡️ server
-
-  💭 while true
-  🔁 👍 🍇
-    🍺 🙋 server❗️ ➡️ clientSocket
-    
-      🆗 data 👂 clientSocket 10000❗️ 🍇
-        💭 store string interpolation into request_header String variable 
-        🔤🧲🍺 🔡data❗️🧲🔤 ➡️ request_header
-         
-         💭 declare new string interpolation to store response header
-         ⁉️ craft_response request_header❗️ ➡️ response
-
-         💭 We’ve read 500 bytes and send them back
-         🆗💬 clientSocket 📇 response ❗️❗️🍇
-           💭 do nothing
-         🍉 💭 send response + body
-         🙅 error_client_socket 🍇
-           😀 🔤An error occurred: 🧲💬 error_client_socket❗️🧲🔤❗️
-         🍉
-      🍉 💭 client socket
-      
-      🙅‍♀️ error_data 🍇
-      🍉 💭 else
-      
-      💭 close the socket
-      🚪 clientSocket ❗️
   
-  🍉 💭 while true
+  💭🔜 
+      Main entry of the program
+  🔚💭
+  🍇🎍🥡
+    💭 while true
+    🔁 👍 🍇
+      🍺 🙋 server❗️ ➡️ clientSocket
+    
+        🆗 data 👂 clientSocket 10000❗️ 🍇
+          💭 store string interpolation into request_header String variable 
+          🔤🧲🍺 🔡data❗️🧲🔤 ➡️ request_header
+         
+           💭 declare new string interpolation to store response header
+           ⁉️ craft_response request_header❗️ ➡️ response
+
+           💭 We’ve read 500 bytes and send them back
+           🆗💬 clientSocket 📇 response ❗️❗️🍇
+             💭 do nothing
+           🍉 💭 send response + body
+           🙅 error_client_socket 🍇
+             😀 🔤An error occurred: 🧲💬 error_client_socket❗️🧲🔤❗️
+           🍉
+        🍉 💭 client socket
+        
+        🙅‍♀️ error_data 🍇
+        🍉 💭 else
+        
+        💭 close the socket
+        🚪 clientSocket ❗️
+  
+    🍉 💭 while true
+  🍉 ➡️ main
+
+
+  💭🔜 
+      Main execution block
+  🔚💭
+  🆕🍨🐚🧵🍆❗️ ➡️ 🖍🆕threads
+  
+  💭 create 512 workers to serve the clients
+  🔂 i 🆕⏩ 0 512❗️ 🍇
+    🐻 threads 🆕🧵 🍇 🎍🥡
+      ⁉️ main❗️
+    🍉❗️❗️
+  🍉
+ 
+  💭 wait for threads to finish before the program ends
+  💭 much like thread.join()
+  🔂 thread threads 🍇
+    🛂 thread❗️
+  🍉
+
 🍉 
 
