@@ -1,11 +1,10 @@
 📦 files 🏠
 📦 sockets 🏠
 
-💭 Simple echo server listening on port 1337
 🏁 🍇
 
-  🍺🆕🏄 1337❗️ ➡️ SERVER  💭 set listening port number
-  🔤html🔤 ➡️ WEB_ROOT  💭 set the web root location
+  🍺🆕🏄 8888❗️ ➡️ SERVER  💭 set listening port number
+  🔤/var/www/emoji/html🔤 ➡️ WEB_ROOT  💭 set the web root location
 
   
   🍇🎍🥡 ➡️ 🔡
