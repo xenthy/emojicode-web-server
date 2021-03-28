@@ -3,7 +3,10 @@
 
 💭 Simple echo server listening on port 1337
 🏁 🍇
-  🔤html🔤 ➡️ WEB_ROOT
+
+  🍺🆕🏄 1337❗️ ➡️ SERVER  💭 set listening port number
+  🔤html🔤 ➡️ WEB_ROOT  💭 set the web root location
+
   
   🍇🎍🥡 ➡️ 🔡
     💭 form html error 404 page
@@ -15,7 +18,7 @@
 </body>
 </html>🔤 ➡️ error_page
     
-    ↩️ 🔤HTTP/1.1 404 Not Found❌r❌nContent-Type: text/html❌r❌n❌r❌n🧲error_page🧲🔤
+    ↩️ 🔤HTTP/1.1 404 Not Found❌r❌nContent-Length: 🧲content_length🧲❌r❌n❌r❌n🧲error_page🧲🔤
   🍉 ➡️ error_404_page
 
   🍇🎍🥡 ➡️ 🔡
@@ -28,8 +31,24 @@
 </body>
 </html>🔤 ➡️ error_page
     
-    ↩️ 🔤HTTP/1.1 400 Bad Request❌r❌nContent-Type: text/html❌r❌n❌r❌n🧲error_page🧲🔤
+    ↩️ 🔤HTTP/1.1 400 Bad Request❌r❌nContent-Length: 🧲content_length🧲❌r❌n❌r❌n🧲error_page🧲🔤
   🍉 ➡️ error_400_page
+
+    🍇🎍🥡 ➡️ 🔡
+    💭 form html error 403 page
+    🔤<html>
+<head><title>403 Forbidden</title></head>
+<body>
+<center><h1>403 Forbidden</h1></center>
+<hr><center>Emojicode Engine/0.1a (Linux)</center>
+</body>
+</html>🔤 ➡️ error_page
+    
+    📐error_page❗️ ➡️ content_length
+
+    ↩️ 🔤HTTP/1.1 403 Forbidden❌r❌nContent-Length: 🧲content_length🧲❌r❌n❌r❌n🧲error_page🧲🔤
+  🍉 ➡️ error_403_page
+
 
   💭🔜 
       Function to craft the response and the body
@@ -60,7 +79,7 @@
 
     💭 check if the status line has the correct format (3 elements)
     ↪️ 📏 status_line_list ❓ ◀️ 3 🍇
-        😀🔤[!] Invalid header🔤❗️
+        😀🔤[!] Invalid header -> 🧲status_line🧲🔤❗️
         ↩️ 🔤🔤  💭 return empty string
     🍉
 
@@ -82,6 +101,7 @@
     🔂 path_component path_list 🍇
        💭 return status 400 if file traversing is detected
        ↪️ path_component 🙌 🔤..🔤 🍇
+         😀🔤[400] 🧲http_method🧲 🧲path🧲 🧲http_version🧲🔤❗️
          ↩️ ⁉️ error_400_page❗️
        🍉
     🍉
@@ -89,6 +109,19 @@
     💭 set default page to index.html
     ↪️ path 🙌 🔤/🔤🍇
       🔤/index.html🔤 ➡️ 🖍path
+    🍉
+
+    💭 check length of file
+    🆗 file_size 📏🕊📑 🔤🧲WEB_ROOT🧲🧲path🧲🔤❗ 🍇
+      💭😀🔤file size: 🧲file_size🧲🔤❗️
+      ↪️ file_size 🙌 4096 🍇
+        😀🔤[403] 🧲http_method🧲 🧲path🧲 🧲http_version🧲🔤❗️
+        ↩️ ⁉️ error_403_page❗️
+      🍉
+    🍉
+    🙅 error_no_file 🍇
+      😀🔤[400] 🧲http_method🧲 🧲path🧲 🧲http_version🧲🔤❗️
+      ↩️ ⁉️ error_404_page❗️
     🍉
 
     💭 read file from directory
@@ -105,9 +138,6 @@
 
   🍉 ➡️ craft_response
 
-
-  💭 set listening port number
-  🍺🆕🏄 1337❗️ ➡️ server
   
   💭🔜 
       Main entry of the program
@@ -115,7 +145,7 @@
   🍇🎍🥡
     💭 while true
     🔁 👍 🍇
-      🍺 🙋 server❗️ ➡️ clientSocket
+      🍺 🙋 SERVER❗️ ➡️ clientSocket
     
         🆗 data 👂 clientSocket 10000❗️ 🍇
           💭 store string interpolation into request_header String variable 
@@ -137,7 +167,7 @@
         🍉 💭 else
         
         💭 close the socket
-        🚪 clientSocket ❗️
+        💭🚪 clientSocket ❗️  💭 will cause bad file descriptor
   
     🍉 💭 while true
   🍉 ➡️ main
@@ -148,7 +178,7 @@
   🔚💭
   🆕🍨🐚🧵🍆❗️ ➡️ 🖍🆕threads
   
-  💭 create 512 workers to serve the clients
+  💭 create n workers to serve the clients
   🔂 i 🆕⏩ 0 512❗️ 🍇
     🐻 threads 🆕🧵 🍇 🎍🥡
       ⁉️ main❗️
