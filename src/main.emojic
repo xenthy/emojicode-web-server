@@ -17,10 +17,8 @@
 <hr><center>Emojicode Engine/0.1a (Linux)</center>
 </body>
 </html>🔤 ➡️ error_page
-
-    📐error_page❗️ ➡️ content_length
     
-    ↩️ 🔤HTTP/1.1 404 Not Found❌r❌nContent-Length: 🧲content_length🧲❌r❌n❌r❌n🧲error_page🧲🔤
+    ↩️ 🔤HTTP/1.1 404 Not Found❌r❌nContent-Type: text/html❌r❌n❌r❌n🧲error_page🧲🔤
   🍉 ➡️ error_404_page
 
   🍇🎍🥡 ➡️ 🔡
@@ -32,10 +30,8 @@
 <hr><center>Emojicode Engine/0.1a (Linux)</center>
 </body>
 </html>🔤 ➡️ error_page
-
-    📐error_page❗️ ➡️ content_length
     
-    ↩️ 🔤HTTP/1.1 400 Bad Request❌r❌nContent-Length: 🧲content_length🧲❌r❌n❌r❌n🧲error_page🧲🔤
+    ↩️ 🔤HTTP/1.1 400 Bad Request❌r❌nContent-Type: text/html❌r❌n❌r❌n🧲error_page🧲🔤
   🍉 ➡️ error_400_page
 
     🍇🎍🥡 ➡️ 🔡
@@ -48,9 +44,7 @@
 </body>
 </html>🔤 ➡️ error_page
     
-    📐error_page❗️ ➡️ content_length
-
-    ↩️ 🔤HTTP/1.1 403 Forbidden❌r❌nContent-Length: 🧲content_length🧲❌r❌n❌r❌n🧲error_page🧲🔤
+    ↩️ 🔤HTTP/1.1 403 Forbidden❌r❌nContent-Type: text/html❌r❌n❌r❌n🧲error_page🧲🔤
   🍉 ➡️ error_403_page
 
 
