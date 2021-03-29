@@ -76,7 +76,7 @@
 
     💭 check if the status line has the correct format (3 elements)
     ↪️ 📏 status_line_list ❓ ◀️ 3 🍇
-        😀🔤[!] Invalid header -> 🧲status_line🧲🔤❗️
+        😀🔤[!] Invalid header -> 🧲request_header🧲🔤❗️
         ↩️ 🔤🔤  💭 return empty string
     🍉
 
