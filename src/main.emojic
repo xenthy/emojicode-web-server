@@ -82,9 +82,13 @@
 
     💭 store status line element into variables
     
-    🐽 status_line_list 0❗️ ➡️ http_method 💭 TODO: verify http method (GET POST etc.)
+    🐽 status_line_list 0❗️ ➡️ http_method 
     🐽 status_line_list 1❗️ ➡️ 🖍🆕path
     🐽 status_line_list 2❗️ ➡️ http_version
+
+    💭 TODO: verify_http method (GET POST etc.)
+    💭 interpret all http requests as GET for the scope of 
+    💭 ict2206 assignment 2
 
     💭 verify if path starts with a forward slash
     ↪️🔍 path 🔤/🔤❗️ 🙌 🤷‍♀️ 🍇
