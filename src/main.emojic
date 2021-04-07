@@ -112,6 +112,10 @@
       🔤/index.html🔤 ➡️ 🖍path
     🍉
 
+    💭 A TEMPORARY WORKAROUND TO RETURN A 403 STATUS FOR FOLDERS
+    💭 AS READING FOLDERS CAUSES A SEGMENTATION FAULT
+    💭 ***FOLDERS IN LINUX HAS A FILE SIZE OF 4096 BYTES***
+    💭
     💭 check length of file
     🆗 file_size 📏🕊📑 🔤🧲WEB_ROOT🧲🧲path🧲🔤❗ 🍇
       💭😀🔤file size: 🧲file_size🧲🔤❗️
